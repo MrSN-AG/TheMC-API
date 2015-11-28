@@ -13,17 +13,14 @@ use pocketmine\utils\Config;
 
 class Main extends PluginBase implements Listener{
 
-	public function onEnable(){
+public function onEnable(){
 $this->getServer()->getPluginManager()->registerEvents($this, $this);
 }
 
 public function onJoin(PlayerJoinEvent $e){
-$p = $e->getPlayer();
-if($p->getName == "MrSN";
-$a = $p->getAddress == "IP ADRESS"){
-$p->sendMessage("TheMC: Succsessful");
-}else{
-$p->kickPlayer();
-}
-}
-}
+	$p = $e->getPlayer();
+				if($p->getName() == "MrSN" && $a = $p->getAddress() == "IPADDRESS")
+				$p->sendMessage("TheMC: Succsessful");
+				else {$p->kickPlayer();
+                                          }
+?>
