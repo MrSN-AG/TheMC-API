@@ -21,8 +21,9 @@ public function onJoin(PlayerJoinEvent $e){
 	$p = $e->getPlayer();
 				if($p->getName() == "MrSN" && $a = $p->getAddress() == "addressip"){
 				$p->sendMessage("TheMC: Succsessful");
-				}else{ $p->kickPlayer();
-                        }
+				}else{ 
+				$p->kickPlayer();
                 }
+        }
 }
 ?>
