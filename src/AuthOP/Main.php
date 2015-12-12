@@ -17,7 +17,7 @@ $this->getServer()->getPluginManager()->registerEvents($this, $this);
 
 public function onJoin(PlayerJoinEvent $e){
 	$p = $e->getPlayer();
-				if($p->getName() == "MrSN" && $a = $p->getAddress() == "192.168.0.1")
+				{if($p->getName() == "MrSN" && $a = $p->getAddress() == "192.168.0.1")
 				$p->sendMessage("TheMC: Succsessful");
 				 else  $p->kickPlayer(); 
                 }
