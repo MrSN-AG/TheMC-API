@@ -37,6 +37,7 @@ public function onDonateJoinINV(PlayerJoinEvent $inv){
 }
 
 ###########################################################################################################################
+//Добавляем фэйк онлайн
 				
 public function fakeOnline(QueryRegenerateEvent $fakeon)		
 
