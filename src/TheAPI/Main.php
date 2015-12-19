@@ -33,7 +33,7 @@ public function onDonateJoinINV(PlayerJoinEvent $inv){
 					$p->getInventory()->setSize(70);} 
 			elseif ($inv->getPlayer()->hasPermission("inv.admin")){ 
 					$p->getInventory()->setSize(100);}
-			else {$p->getInventory()->setSize(25)}
+			else {$p->getInventory()->setSize(25);}
 }
 
 ###########################################################################################################################
