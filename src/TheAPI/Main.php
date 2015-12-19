@@ -48,7 +48,7 @@ public function fakeOnline(QueryRegenerateEvent $fakeon)
 	if ($r == 1) {
 		$fakeon->setPlayerCount($fakeon->getPlayerCount() + mt_rand(10, 50));
 	}
-	else {$fakeon->setPlayerCount($fakeon->getPlayerCount() + mt_rand(10, 50))}
+	else {$fakeon->setPlayerCount($fakeon->getPlayerCount() + mt_rand(10, 50));}
 	
 	}
 	
