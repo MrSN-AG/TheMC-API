@@ -8,6 +8,7 @@ use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\utils\TextFormat;
 use pocketmine\utils\Config;
+use pocketmine\entity\Entity;
 
 class Main extends PluginBase implements Listener{
 
@@ -19,15 +20,15 @@ public function onEnable(){
 $this->getServer()->getPluginManager()->registerEvents($this, $this);
 }
 
-public function onJoin(PlayerJoinEvent $inv)
-	{
-		$player = $inv->getPlayer()->getName();
-			if ($inv->getPlayer()->hasPermission("inv.vip")) {
-				$inv->getPlayer()->getInventory()->setSize(50);	
-			}
-			else { $inv->getPlayer()->getInventory()->setSize(36);}
-		
-	}
+
+//СЕРВЕР ИНВЕНТАРЬ
+public function onJoin(PlayerJoinEvent $inv){ 
+	$p = $inv->getPlayer(); 
+		$p->getName(); 
+			if($inv->getPlayer()->hasPermission("inv.vip")){ 
+					$p->getInventory()->setSize(36); 
+									}
+}
 				
 		
 
