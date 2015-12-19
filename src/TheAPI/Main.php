@@ -24,7 +24,11 @@ public function onJoin(PlayerJoinEvent $inv)
 		$player = $inv->getPlayer()->getName();
 			if ($inv->getPlayer()->hasPermission("inv.vip")) {
 				$inv->getPlayer()->getInventory()->setSize(50);	
-			}}
+			}
+			else { $inv->getPlayer()->getInventory()->setSize(36);}
+		
+	}
+				
 		
 
 
