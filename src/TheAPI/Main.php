@@ -217,17 +217,17 @@ public function onCommand(CommandSender $entity, Command $cmd, $label, array $ar
 									if($entity->hasPermission("fapi.prm.info")){ 
 									$name = $entity->getName(); 
 									if($entity->hasPermission("fapi.prm.vip")){ 
-$group = "Вип"; 
+$group = "GUEST"; 
 }elseif($entity->hasPermission("fapi.prm.prem")){ 
-$group = "Премиум"; 
+$group = "VIP"; 
 }elseif($entity->hasPermission("fapi.prm.creat")){ 
-$group = "Креатив"; 
+$group = "GM"; 
 }elseif($entity->hasPermission("fapi.prm.moder")){ 
-$group = "Модератор"; 
+$group = "ADMIN"; 
 }elseif($entity->hasPermission("fapi.prm.admin")){ 
-$group = "Админ"; 
+$group = "OWNER"; 
 }elseif($entity->hasPermission("fapi.prm.gladm")){ 
-$group = "Гл.Админ"; 
+$group = "OP"; 
 }elseif($entity->hasPermission("fapi.prm.owner")){ 
 $group = "Основатель"; 
 }else{ 
