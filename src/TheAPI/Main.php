@@ -236,7 +236,7 @@ $group = "Игрок";
 }else{ 
 $entity->sendMessage(F::RED. "Тебе не доступна данная команда!"); }
 $name = $entity->getName(); 
-$money = $this->EconomyS->mymoney($name); 
+$money = $this->eco->mymoney($name); 
 $kills = $this->getKills($name); 
 $death = $this->getDeaths($name); 
 $plus = 3; 
