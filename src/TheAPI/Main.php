@@ -78,6 +78,8 @@ class Main extends PluginBase implements Listener{
 public function onEnable(){
 $this->getServer()->getPluginManager()->registerEvents($this, $this);
 $this->eco = $this->getServer()->getPluginManager()->getPlugin("EconomyAPI");
+@mkdir($this->getDataFolder());
+@mkdir($this->getDataFolder() . "data/killanddeeath");
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
