@@ -206,17 +206,17 @@ $data->save();
 //Статистика игры на сервере 
 
 public function onCommand(CommandSender $entity, Command $cmd, $label, array $args){ 
-$level = $this->getServer()->getDefaultLevel(); 
-$x = $this->getServer()->getDefaultLevel()->getSafeSpawn()->getX(); 
-$y = $this->getServer()->getDefaultLevel()->getSafeSpawn()->getY(); 
-$z = $this->getServer()->getDefaultLevel()->getSafeSpawn()->getZ(); 
-switch($cmd->getName()){
+			$level = $this->getServer()->getDefaultLevel(); 
+			$x = $this->getServer()->getDefaultLevel()->getSafeSpawn()->getX(); 
+			$y = $this->getServer()->getDefaultLevel()->getSafeSpawn()->getY(); 
+			$z = $this->getServer()->getDefaultLevel()->getSafeSpawn()->getZ(); 
+				switch($cmd->getName()){
 	
-			case "info": 
-if($entity Instanceof Player){ 
-if($entity->hasPermission("fapi.prm.info")){ 
-$name = $entity->getName(); 
-if($entity->hasPermission("fapi.prm.vip")){ 
+					case "info": 
+					if($entity Instanceof Player){ 
+									if($entity->hasPermission("fapi.prm.info")){ 
+									$name = $entity->getName(); 
+									if($entity->hasPermission("fapi.prm.vip")){ 
 $group = "Вип"; 
 }elseif($entity->hasPermission("fapi.prm.prem")){ 
 $group = "Премиум"; 
@@ -234,7 +234,7 @@ $group = "Основатель";
 $group = "Игрок"; 
 } 
 }else{ 
-$entity->sendMessage(F::RED. "Тебе не доступна данная команда!"); 
+$entity->sendMessage(F::RED. "Тебе не доступна данная команда!"); }
 $name = $entity->getName(); 
 $money = $this->EconomyS->mymoney($name); 
 $kills = $this->getKills($name); 
