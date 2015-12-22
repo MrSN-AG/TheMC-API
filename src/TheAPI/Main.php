@@ -222,7 +222,7 @@ public function onCommand(CommandSender $s, Command $cmd, $label, array $args)
 				$deaths = $this->getDeaths($nick);
 				if($s->hasPermission("fapi.prm.info")){ 
 
-				}elseif($s->hasPermission("fapi.prm.vip")){ 
+				}if($s->hasPermission("fapi.prm.vip")){ 
 				$group = "VIP"; 
 				}elseif($s->hasPermission("fapi.prm.prem")){ 
 				$group = "GM"; 
