@@ -205,58 +205,54 @@ $data->save();
 ######################################################################################################################################################
 //Статистика игры на сервере 
 
-public function onCommand(CommandSender $s, Command $cmd, $label, array $args)
-
-	{
-		$level = $this->getServer()->getDefaultLevel();
-		$x = $this->getServer()->getDefaultLevel()->getSafeSpawn()->getX(); 
-		$y = $this->getServer()->getDefaultLevel()->getSafeSpawn()->getY(); 
-		$z = $this->getServer()->getDefaultLevel()->getSafeSpawn()->getZ(); 
-		switch($cmd->getName()){
-			case "info":
-			if ($s instanceof Player) {
-				$nick = $s->getName();
-			
-				$balance = $this->eco->mymoney($nick);
-				$kills = $this->getKills($nick);
-				$deaths = $this->getDeaths($nick);
-				if($s->hasPermission("fapi.prm.info")){ 
-
-				}if($s->hasPermission("fapi.prm.vip")){ 
-				$group = "VIP"; 
-				}elseif($s->hasPermission("fapi.prm.prem")){ 
-				$group = "GM"; 
-				}elseif($s->hasPermission("fapi.prm.creat")){ 
-				$group = "ADMIN"; 
-				}elseif($s->hasPermission("fapi.prm.moder")){ 
-				$group = "Модератор"; 
-				}elseif($s->hasPermission("fapi.prm.admin")){ 
-				$group = "Админ"; 
-				}elseif($s->hasPermission("fapi.prm.gladm")){ 
-				$group = "Гл.Админ"; 
-				}elseif($s->hasPermission("fapi.prm.owner")){ 
-				$group = "Основатель"; 
-				}else{ 
-				$group = "Игрок"; 
-				}
-					
-				$plus = 3; 
-				$datemsk = gmdate("H:i:s", time() + ($plus*3600));
-				
-				$x = $s->getFloorX();
-				$y = $s->getFloorY();
-				$z = $s->getFloorZ();
-				
-				$s->sendMessage(F::YELLOW. "Ваш ник: " .F::AQUA. "$nick"); 
-				$s->sendMessage(F::YELLOW. "Ваш баланс: " .F::GOLD. "$balance" .F::YELLOW. "коинсов"); 
-				$s->sendMessage(F::YELLOW. "Ваши права: " .F::DARK_AQUA. "$group"); 
-				$s->sendMessage(F::YELLOW. "Сейчас время: " .F::GREEN. "$datemsk " .F::GRAY. "(МСК)"); 
-				$s->sendMessage(F::YELLOW. "Ваши киллы: " .F::RED. "$kills"); 
-				$s->sendMessage(F::YELLOW. "Ваши смерти: " .F::RED. "$deaths"); 
-				$s->sendMessage(F::YELLOW. "Ваши координаты: " .F::RED. "$x, $y, $z");
-				
-			}
-			break;
+public function onCommand(CommandSender $entity, Command $cmd, $label, array $args){ 
+$level = $this->getServer()->getDefaultLevel(); 
+$x = $this->getServer()->getDefaultLevel()->getSafeSpawn()->getX(); 
+$y = $this->getServer()->getDefaultLevel()->getSafeSpawn()->getY(); 
+$z = $this->getServer()->getDefaultLevel()->getSafeSpawn()->getZ(); 
+switch($cmd->getName()){
+	
+			case "info": 
+if($entity Instanceof Player){ 
+if($entity->hasPermission("fapi.prm.info")){ 
+$name = $entity->getName(); 
+if($entity->hasPermission("fapi.prm.vip")){ 
+$group = "Вип"; 
+}elseif($entity->hasPermission("fapi.prm.prem")){ 
+$group = "Премиум"; 
+}elseif($entity->hasPermission("fapi.prm.creat")){ 
+$group = "Креатив"; 
+}elseif($entity->hasPermission("fapi.prm.moder")){ 
+$group = "Модератор"; 
+}elseif($entity->hasPermission("fapi.prm.admin")){ 
+$group = "Админ"; 
+}elseif($entity->hasPermission("fapi.prm.gladm")){ 
+$group = "Гл.Админ"; 
+}elseif($entity->hasPermission("fapi.prm.owner")){ 
+$group = "Основатель"; 
+}else{ 
+$group = "Игрок"; 
+} 
+}else{ 
+$entity->sendMessage(F::RED. "Тебе не доступна данная команда!"); 
+$name = $entity->getName(); 
+$money = $this->EconomyS->mymoney($name); 
+$kills = $this->getKills($name); 
+$death = $this->getDeaths($name); 
+$plus = 3; 
+$datemsk = gmdate("H:i:s", time() + ($plus*3600)); 
+$x = $entity->getFloorX(); 
+$y = $entity->getFloorY(); 
+$z = $entity->getFloorZ(); 
+$entity->sendMessage(F::YELLOW. "Ваш ник: " .F::AQUA. "$name"); 
+$entity->sendMessage(F::YELLOW. "Ваш баланс: " .F::GOLD. "$money" .F::YELLOW. "$"); 
+$entity->sendMessage(F::YELLOW. "Ваши права: " .F::DARK_AQUA. "$group"); 
+$entity->sendMessage(F::YELLOW. "Сейчас время: " .F::GREEN. "$datemsk " .F::GRAY. "(МСК)"); 
+$entity->sendMessage(F::YELLOW. "Ваши киллы: " .F::RED. "$kills"); 
+$entity->sendMessage(F::YELLOW. "Ваши смерти: " .F::RED. "$death"); 
+$entity->sendMessage(F::YELLOW. "Ваши координаты: " .F::RED. "$x, $y, $z"); 
+} 
+break;
 		}
 	}
 	
