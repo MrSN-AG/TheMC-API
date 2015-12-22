@@ -221,8 +221,8 @@ public function onCommand(CommandSender $s, Command $cmd, $label, array $args)
 				$kills = $this->getKills($nick);
 				$deaths = $this->getDeaths($nick);
 				if($s->hasPermission("fapi.prm.info")){ 
-				$name = $s->getName(); 
-				}if($s->hasPermission("fapi.prm.vip")){ 
+
+				}elseif($s->hasPermission("fapi.prm.vip")){ 
 				$group = "VIP"; 
 				}elseif($s->hasPermission("fapi.prm.prem")){ 
 				$group = "GM"; 
@@ -247,7 +247,7 @@ public function onCommand(CommandSender $s, Command $cmd, $label, array $args)
 				$y = $s->getFloorY();
 				$z = $s->getFloorZ();
 				
-				$s->sendMessage(F::YELLOW. "Ваш ник: " .F::AQUA. "$name"); 
+				$s->sendMessage(F::YELLOW. "Ваш ник: " .F::AQUA. "$nick"); 
 				$s->sendMessage(F::YELLOW. "Ваш баланс: " .F::GOLD. "$balance" .F::YELLOW. "коинсов"); 
 				$s->sendMessage(F::YELLOW. "Ваши права: " .F::DARK_AQUA. "$group"); 
 				$s->sendMessage(F::YELLOW. "Сейчас время: " .F::GREEN. "$datemsk " .F::GRAY. "(МСК)"); 
