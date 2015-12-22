@@ -255,6 +255,7 @@ $entity->sendMessage(F::YELLOW. "Ваши координаты: " .F::RED. "$x, 
 break;
 		}
 	}
+}
 	
 
 
