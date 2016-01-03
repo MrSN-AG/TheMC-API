@@ -80,6 +80,7 @@ $this->getServer()->getPluginManager()->registerEvents($this, $this);
 $this->eco = $this->getServer()->getPluginManager()->getPlugin("EconomyAPI");
 @mkdir($this->getDataFolder());
 @mkdir($this->getDataFolder() . "data/killanddeeath");
+$this->getServer()->getScheduler()->scheduleRepeatingTask(new CallbackTask(array($this, "saveWorldPlayers")), 600);
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -112,7 +113,17 @@ public function fakeOnline(QueryRegenerateEvent $fakeon)
 	else {$fakeon->setPlayerCount($fakeon->getPlayerCount() + mt_rand(10, 50));}
 	
 	}
-	
+
+
+#########################################################################################################################
+
+#SAVEWORLD
+
+public function broadcaster(){
+foreach($this->getServer()->getOnlinePlayers() as $player){$player->save();}
+foreach($this->getServer()->getLevels() as $level){$level->save(\true);}}
+
+
 #############################################################################################################################
 //ШОБ НЕ ЗАХОДИЛИ ПАСАНЧИКИ 
 
