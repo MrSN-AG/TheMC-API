@@ -114,29 +114,12 @@ public function fakeOnline(QueryRegenerateEvent $fakeon)
 	}
 	
 #############################################################################################################################
-/*
+//ШОБ НЕ ЗАХОДИЛИ ПАСАНЧИКИ 
 
-//Интеграция с VK API (Стата в группе)
-
-public function updateMOTD() { 
-$online = count($this->getServer()->getOnlinePlayers()); 
-$razn = 3;// для Москвы зимой 
-$time = gmdate("H:i", time() + ($razn*3600)); 
-
-$this->setStatus(" TheMC (0.13) [Nexus] -  " .$online. "/". $this->getServer()->getMaxPlayers() ." Время - " .$time. " msk "); 
-} 
-
-public function setStatus($text) { 
-$token = "tokenfromvk"; //тут токен вписать нужно 
-$curlObject = curl_init("https://api.vk.com/method/status.set?access_token=" .$token. "&group_id=73298513&text=" .rawurlencode($text)); 
-curl_setopt($curlObject, CURLOPT_SSL_VERIFYPEER, false); 
-curl_setopt($curlObject, CURLOPT_SSL_VERIFYHOST, false); 
-curl_setopt($curlObject, CURLOPT_RETURNTRANSFER, true); 
-curl_exec($curlObject); 
-@curl_close($curlObject); 
-}
-
-*/
+public function onPlayerPreLogin(PlayerPreLoginEvent $event){
+$player = $event->getPlayer();foreach($this->getServer()->getOnlinePlayers() as $p){ 
+if($p !== $player and strtolower($player->getName()) === strtolower($p->getName())){ 
+$e->setKickMessage(F::RED. $player->getName() . F::GOLD. " уже играет на сервере");$event->setCancelled(true);return;}}}}
 
 ################################################################################################################################
 // Смерти и убийства
