@@ -80,8 +80,7 @@ $this->getServer()->getPluginManager()->registerEvents($this, $this);
 $this->eco = $this->getServer()->getPluginManager()->getPlugin("EconomyAPI");
 @mkdir($this->getDataFolder());
 @mkdir($this->getDataFolder() . "data/killanddeeath");
-$this->getServer()->getScheduler()->scheduleRepeatingTask(new CallbackTask(array($this, "saveWorldPlayers")), 600);
-}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #########################################################################################################################
@@ -98,39 +97,7 @@ public function onDonateJoinINV(PlayerJoinEvent $inv){
 			else {$p->getInventory()->setSize(25);}
 }
 
-###########################################################################################################################
-//Добавляем фэйк онлайн
-				
-public function fakeOnline(QueryRegenerateEvent $fakeon)		
 
-	{
-		
-	$r = mt_rand(1, 2);
-	$fakeon->setMaxPlayerCount(1);
-	if ($r == 1) {
-		$fakeon->setPlayerCount($fakeon->getPlayerCount() + mt_rand(10, 50));
-	}
-	else {$fakeon->setPlayerCount($fakeon->getPlayerCount() + mt_rand(10, 50));}
-	
-	}
-
-
-#########################################################################################################################
-
-#SAVEWORLD
-
-public function broadcaster(){
-foreach($this->getServer()->getOnlinePlayers() as $player){$player->save();}
-foreach($this->getServer()->getLevels() as $level){$level->save(\true);}}
-
-
-#############################################################################################################################
-//ШОБ НЕ ЗАХОДИЛИ ПАСАНЧИКИ 
-
-public function onPlayerPreLogin(PlayerPreLoginEvent $event){
-$player = $event->getPlayer();foreach($this->getServer()->getOnlinePlayers() as $p){ 
-if($p !== $player and strtolower($player->getName()) === strtolower($p->getName())){ 
-$e->setKickMessage(F::RED. $player->getName() . F::GOLD. " уже играет на сервере");$event->setCancelled(true);return;}}}}
 
 ################################################################################################################################
 // Смерти и убийства
@@ -225,7 +192,7 @@ $group = "OP";
 }elseif($entity->hasPermission("fapi.prm.owner")){ 
 $group = "Основатель"; 
 }else{ 
-$group = "Игрок"; 
+$group = "GUEST"; 
 } 
 }else{ 
 $entity->sendMessage(F::RED. "Тебе не доступна данная команда!"); }
