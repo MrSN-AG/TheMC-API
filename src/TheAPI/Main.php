@@ -100,6 +100,13 @@ public function onDonateJoinINV(PlayerJoinEvent $inv){
 
 
 ################################################################################################################################
+
+// Анти дроп в креативе 
+public function dropEvent(PlayerDropItemEvent $e){$p = $e->getPlayer();if($p instanceof Player && !$p->hasPermission("fapi.prm.owner")){ 
+if($p->getGamemode() != 0){$e->setCancelled();$p->sendTip(F::RED."Ты не можешь скидывать предметы!");return false;}}}
+
+
+#################################################################################################################################
 // Смерти и убийства
 
 public function onDeath(PlayerDeathEvent $e)
