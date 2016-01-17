@@ -80,6 +80,7 @@ $this->getServer()->getPluginManager()->registerEvents($this, $this);
 $this->eco = $this->getServer()->getPluginManager()->getPlugin("EconomyAPI");
 @mkdir($this->getDataFolder());
 @mkdir($this->getDataFolder() . "data/killanddeeath");
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
