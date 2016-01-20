@@ -110,9 +110,9 @@ if($p->getGamemode() != 0){$e->setCancelled();$p->sendTip(F::RED."Ты не мо
 #################################################################################################################################
 // Смерти и убийства
 
-public function onDeath(PlayerDeathEvent $e)
+public function onDeath(PlayerDeathEvent $event)
 	{
-		$victim = $e->getEntity();
+		$victim = $event->getEntity();
 		if ($victim instanceof Player){
 			$data = new Config($this->getDataFolder() . "data/killanddeeath/" . strtolower($victim->getName()) . ".yml", Config::YAML);
 			if ($data->exists("kills") and $data->exists("deaths")){
